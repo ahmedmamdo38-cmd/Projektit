@@ -11,6 +11,7 @@ function tyhjenna(){
 
 }
 
-function laheta(){
+function laheta(){   
     
+
 }
