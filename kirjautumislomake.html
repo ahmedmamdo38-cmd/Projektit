@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.Projekti</title>
+    <link rel="stylesheet" href="kirjautumislomake.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>kirjautumislomake</h2>
+        <form id="loginForm" onsubmit="return false">
+            <div class="form-group">
+                <label for="name">Nimi</label>
+                <input type="text" name="name" id="name" placeholder="Kirjoita nimesi">
+                <p id="vastaus"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Sähköposti</label>
+                <input type="text" name="email" id="email" placeholder="Kirjoita sähköposti osoite">
+                <p id="vastaus2"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Salasana</label>
+                <input type="password" name="password" id="password" placeholder="Kirjoita salasana ">
+                <p id="vastaus3"></p>
+            </div>
+            <button type="submit" onClick="tyhjenna()">Tyhjenna</button>
+            <button onClick="laheta()">Lähetä</button>
+        </form>
+        
+    </div>
+</body>
+<script src="kirjautumislomake.js"></script>
+
+</html>

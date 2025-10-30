@@ -29,3 +29,8 @@ button:hover{
     transform: translateY(2);
 <<<<<<< HEAD
 }
+.nappi{
+    border-radius: 20px;
+=======
+>>>>>>> 2208c716b1b6b19c3ee7fcfd3480eef2ec758984
+}
