@@ -1,0 +1,30 @@
+body{
+    background-color: blue;
+}
+
+
+.button{
+    background-color: yellow;
+    padding: 50px;
+    border-radius: 25px;
+
+}
+.h2{
+    background-color: red;
+    max-width: 400px;
+    align-items: center;
+    border-radius: 10px;
+    color: black;
+}
+button{
+    width: 100%;
+    padding: 6px;
+    font-size: 12px;
+    font-weight: 400px;
+    cursor: pointer;
+    transition: transfrom 0.2s;
+    background-color: red;
+}
+button:hover{
+    transform: translateY(2);
+}
