@@ -28,3 +28,6 @@ button{
 button:hover{
     transform: translateY(2);
 }
+.nappi{
+    border-radius: 20px;
+}
