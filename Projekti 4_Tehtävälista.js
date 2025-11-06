@@ -1,4 +1,4 @@
-var addButtonButton = document.getElementById("painike");
+var addButton = document.getElementById("painike");
 var input = document.getElementById("enter");
 var ul  = document.querySelector("ul");
 
@@ -6,6 +6,7 @@ addButton.addEventListener("click", addTaskOnClick);
 
 input.addEventListener("keypress",addTaskOnEnter);
 
+var ul = document.querySelector("ul");
 function addTaskOnClick(){
     if (input.value.length > 0){
         createTask();
@@ -22,9 +23,14 @@ function createTask(){
     if (input.value === '')return;
 
     var taskItem = document.createElement("li");
-    taskItem.textContent =  input.value;
-    taskList.appendChild(taskItem);
-
+    if(input.value != '')
+{
+  taskItem.appendChild(document.createTextNode(input.value)); //lisätään li-elementtiin tekstin, joka on laatikossa
+    ul.appendChild(taskItem); //lisää li-elementin ul-elementtiin
+    input.value = ""; // Tyhjentää syöttökentän
+}
+    //taskList.appendChild(taskItem);
+alert("Kukkuu");
     input.value = "";
      taskItem.addEventListener("click", function(){
         taskItem.classList.toggle("done");
