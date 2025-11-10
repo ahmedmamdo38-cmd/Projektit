@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Kysymystä askel alkeleelta</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <div id="sisalto">
+        <header>
+            <h1>Yksinkertainen JavaScript tietovisa</h1>
+            <p>Testaa tietosi <strong>JavaScriptin peruusteista</strong></p>
+        </header>
+    </div>
+    <section>
+        <div id="tulokset"></div>
+        <form name="kyselyLomake" onsubmit="return lahetaVastaukset()">
+            <h3>1. Mihin HTML elementtiin sijoitamme JavaScript koodin?</h3>
+            <input type="radio" name="k1" value="a" id="kla">a. &lt;js &gt;<br> 
+            <input type="radio" name="k1" value="b" id="kla">b. &lt;script&gt;<br> 
+            <input type="radio" name="k1" value="c" id="kla">c. &lt;body &gt;<br> 
+            <input type="radio" name="k1" value="d" id="kla">d. &lt;link &gt;<br> 
+        
+    </section>
+
+        <section>
+            <h3>1. Mitä HTML attribuuttia käytetään viittaamaan ulkoiseen JavaScript tiedostoon?</h3>
+            <input type="radio" name="k1" value="a" id="kla">a. src<br> 
+            <input type="radio" name="k1" value="b" id="kla">b. link<br> 
+            <input type="radio" name="k1" value="c" id="kla">c. rel<br> 
+            <input type="radio" name="k1" value="d" id="kla">d. href<br> 
+    </section>
+    
+    <section>
+        <h3>Kuinka kirjoitat "Moikka" alert-viestinä?</h3>
+        <input type="radio" name="ki" value="a" id="k1">a. msg("Moikka");<br>
+        <input type="radio" name="ki" value="b" id="k1">b. alertBox("Moikka");<br>
+        <input type="radio" name="ki" value="c" id="k1">c. document.write("Moikka");<br>
+        <input type="radio" name="ki" value="d" id="k1">d. alert("Moikka");<br>
+    </section>
+</form>
+</body>
+</html>

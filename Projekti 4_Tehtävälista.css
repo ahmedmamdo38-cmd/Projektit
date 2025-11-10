@@ -1,0 +1,41 @@
+body{
+    background-color: #04A1BF;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.container{
+    width: 700px;
+}
+h1{
+    color: white;
+    font-weight: 700;
+    text-transform:uppercase;
+}
+p{
+    font-weight: 700;
+}
+#ensi_rivi{
+    margin-top: 15px;
+    color: orange;
+}
+#toinen_rivi{
+    color: yellow;
+}
+#kolmas_rivi{
+    color:black ;
+    margin-bottom: 25px;
+}
+#enter{
+    border-radius: 7px;
+    border: none;
+    width: 500px;
+    line-height: 23px;
+}
+#painike{
+    background:lightblue ;
+    border-radius: 4px;
+}
+#painik:hover{
+    background-color: blueviolet;
+    color: #FFCD5D;
+}

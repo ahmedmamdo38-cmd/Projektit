@@ -1,0 +1,32 @@
+body{
+    margin:  0 auto;
+    width: 800px;
+    padding: 10px;
+    background-color: orange;
+}
+fieldset{
+    text-align: center;
+    min-height: 450px;
+    background-color: lightblue;
+}
+header{
+    background:  #007ba4;
+    text-align: center;
+    color: white;
+    width: 800px;
+    height: 40px;
+}
+nav li{
+    float: left;
+    list-style: none;
+    margin-top: 10px;
+    padding-left: 10px;
+    margin-left: 150px;
+    color: white;
+    height: 15px;
+    
+}
+nav a{
+    color: white;
+    height: 15px;
+}
