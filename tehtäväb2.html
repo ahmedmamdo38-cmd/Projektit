@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b2</title>
+    <link rel="stylesheet" href="tehtäväb2.css">
+</head>
+<body>
+    <div id="sisalto">
+        <header>
+            <h1>Yksinkertainen JavaScript tietovisa</h1>
+            <p>Testaa tietosi <strong>JavaScriptin peruusteista</strong></p>
+        </header>
+
+    <section>
+        <div id="tulokset"></div>
+        <form name="kyselyLomake" onsubmit="return lahetaVastaukset()">
+            <h3>1. Mihin HTML elementtiin sijoitamme JavaScript koodin?</h3>
+            <input type="radio" name="k1" value="a" id="kla">a. &lt;js &gt;<br> 
+            <input type="radio" name="k1" value="b" id="kla">b. &lt;script&gt;<br> 
+            <input type="radio" name="k1" value="c" id="kla">c. &lt;body &gt;<br> 
+            <input type="radio" name="k1" value="d" id="kla">d. &lt;link &gt;<br> 
+        
+            <h3>1. Mitä HTML attribuuttia käytetään viittaamaan ulkoiseen JavaScript tiedostoon?</h3>
+            <input type="radio" name="b2" value="a" id="bb4">a. src<br> 
+            <input type="radio" name="b2" value="b" id="bb3">b. link<br> 
+            <input type="radio" name="b2" value="c" id="bb2">c. rel<br> 
+            <input type="radio" name="b2" value="d" id="bb1">d. href<br> 
+
+        <h3>Kuinka kirjoitat "Moikka" alert-viestinä?</h3>
+        <input type="radio" name="ki" value="a" id="k21">a. msg("Moikka");<br>
+        <input type="radio" name="ki" value="b" id="k21">b. alertBox("Moikka");<br>
+        <input type="radio" name="ki" value="c" id="k21">c. document.write("Moikka");<br>
+        <input type="radio" name="ki" value="d" id="k21">d. alert("Moikka");<br>
+
+        <h3>1.JavaScript on suoraan "Java" ohjelmointikielen sukulainen</h3>
+        <input type="radio" name="radio" id="kyl">a.Kyllä<br>
+        <input type="radio" name="radio" id="ei">b.Ei
+
+        <h3>1. JavaScript muuttuja pitää alkaa tietyllä merkillä</h3>
+        <input type="radio" name="at" id="at">a.@ <br>
+        <input type="radio" name="at" id="do">b.$ <br>
+        <input type="radio" name="at" id="as">c.# <br>
+        <input type="radio" name="at" id="ei">d.Ei tarvitse tiettyä merkkiä
+        </form>
+        <input type="submit" value="lähetä Vastaukset" id="läva">
+    </section>
+    <br><br></div>
+<footer>
+    <p>Copyright &COPY; Haben Tsegu And Ahmed Mamdo 3.11.2025, kaikkinoikeudet pidätetään</p>
+</footer>
+</form>
+</body>
+<script src="tehtävä2b.js"></script>
+</html>
