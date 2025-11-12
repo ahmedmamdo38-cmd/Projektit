@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muistipeli – Kuvaversio</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1b2333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+fieldset {
+  background-color: #2a3550;
+  border-radius: 10px;
+  padding: 20px;
+  border: none;
+}
+table {
+  margin-top: 20px;
+  border-spacing: 10px;
+}
+.kortti {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: #777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  user-select: none;
+}
+.kortti:hover {
+  transform: scale(1.05);
+}
+.kortti img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: none;
+}
+.kortti.kaannetty img {
+  display: block;
+}
+.kortti.kaannetty {
+  background-color: #4b79ff;
+}
+.kortti.loytynyt {
+  background-color: #4caf50;
+  cursor: default;
+}
+button {
+  margin: 5px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #4b79ff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+button:hover {
+  background-color: #3a63e0;
+}
+</style>
+</head>
+<body>
+
+<h2>Muistipeli – Kuvaversio</h2>
+<fieldset>
+  <label>Korkeus:</label> 
+  <input type="number" id="korkeus" min="1" max="6" value="2">
+  <label>Leveys:</label>
+  <input type="number" id="leveys" min="1" max="6" value="4">
+  <button onclick="luo()">Luo</button>
+  <button onclick="reset()">Reset</button>
+
+  <p id="arvaukset">Arvausten määrä: 0</p>
+  <p id="aika">Aika: 00:00:00</p>
+
+  <table id="pelilauta"></table>
+</fieldset>
+
+<script>
+let ensimmainenKortti = null;
+let toinenKortti = null;
+let voiKlikata = true;
+let loydettyjaPareja = 0;
+let klikkauskertoja = 0;
+let ajastin = null;
+let sekunnit = 0;
+
+function luo() {
+  if (ajastin) clearInterval(ajastin);
+
+  const korkeus = parseInt(document.getElementById("korkeus").value);
+  const leveys = parseInt(document.getElementById("leveys").value);
+
+  if (!korkeus || !leveys || korkeus < 1 || leveys < 1 || korkeus > 6 || leveys > 6) {
+    alert("Anna korkeus ja leveys väliltä 1–6!");
+    return;
+  }
+
+  const maara = korkeus * leveys;
+  if (maara % 2 !== 0) {
+    alert("Korttien määrä pitää olla parillinen!");
+    return;
+  }
+
+  // Korttiparit
+  let kortit = [];
+  for (let i = 1; i <= maara / 2; i++) {
+    kortit.push(i, i);
+  }
+  kortit.sort(() => Math.random() - 0.5);
+
+  // Luo taulukko
+  const table = document.getElementById("pelilauta");
+  table.innerHTML = "";
+  let idx = 0;
+  for (let r = 0; r < korkeus; r++) {
+    const tr = document.createElement("tr");
+    for (let c = 0; c < leveys; c++) {
+      const td = document.createElement("td");
+      const div = document.createElement("div");
+      div.className = "kortti";
+      div.dataset.arvo = kortit[idx++];
+      div.dataset.loydetty = "ei";
+      div.onclick = () => kaannaKortti(div);
+
+      // Luo img-elementti ja aseta oikea kuva
+      const img = document.createElement("img");
+      img.src = `Kuvat/kuva${div.dataset.arvo}.png`;
+      img.alt = `Kuva ${div.dataset.arvo}`;
+      div.appendChild(img);
+
+      td.appendChild(div);
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+
+  // Nollaa pelitilat
+  ensimmainenKortti = null;
+  toinenKortti = null;
+  voiKlikata = true;
+  loydettyjaPareja = 0;
+  klikkauskertoja = 0;
+  sekunnit = 0;
+  document.getElementById("arvaukset").textContent = "Arvausten määrä: 0";
+  document.getElementById("aika").textContent = "Aika: 00:00:00";
+
+  ajastin = setInterval(paivitaKello, 1000);
+}
+
+function kaannaKortti(kortti) {
+  if (!voiKlikata || kortti.dataset.loydetty === "kylla" || kortti.classList.contains("kaannetty")) return;
+
+  kortti.classList.add("kaannetty");
+
+  if (!ensimmainenKortti) {
+    ensimmainenKortti = kortti;
+    return;
+  }
+
+  toinenKortti = kortti;
+  klikkauskertoja++;
+  document.getElementById("arvaukset").textContent = "Arvausten määrä: " + klikkauskertoja;
+  voiKlikata = false;
+
+  if (ensimmainenKortti.dataset.arvo === toinenKortti.dataset.arvo) {
+    ensimmainenKortti.dataset.loydetty = "kylla";
+    toinenKortti.dataset.loydetty = "kylla";
+    ensimmainenKortti.classList.add("loytynyt");
+    toinenKortti.classList.add("loytynyt");
+    loydettyjaPareja++;
+    nollaaValitut();
+    tarkistaVoitto();
+  } else {
+    setTimeout(() => {
+      ensimmainenKortti.classList.remove("kaannetty");
+      toinenKortti.classList.remove("kaannetty");
+      nollaaValitut();
+    }, 800);
+  }
+}
+
+function nollaaValitut() {
+  ensimmainenKortti = null;
+  toinenKortti = null;
+  voiKlikata = true;
+}
+
+function tarkistaVoitto() {
+  const korkeus = parseInt(document.getElementById("korkeus").value);
+  const leveys = parseInt(document.getElementById("leveys").value);
+  const kaikkiParit = (korkeus * leveys) / 2;
+  if (loydettyjaPareja === kaikkiParit) {
+    clearInterval(ajastin);
+    alert(`🎉 Onneksi olkoon! Löysit kaikki parit!\nArvauksia: ${klikkauskertoja}\nAika: ${muotoileAika(sekunnit)}`);
+  }
+}
+
+function reset() {
+  if (ajastin) clearInterval(ajastin);
+  document.getElementById("pelilauta").innerHTML = "";
+  document.getElementById("arvaukset").textContent = "Arvausten määrä: 0";
+  document.getElementById("aika").textContent = "Aika: 00:00:00";
+}
+
+function paivitaKello() {
+  sekunnit++;
+  document.getElementById("aika").textContent = "Aika: " + muotoileAika(sekunnit);
+}
+
+function muotoileAika(sek) {
+  const m = Math.floor(sek / 60);
+  const s = sek % 60;
+  return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+}
+</script>
+</body>
+</html>
