@@ -1,0 +1,41 @@
+body{
+    background: linear-gradient(to right, #899499, #e5e4e2, white, #848884);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1{
+    background-color: black;
+    font-size: 45px;
+    font-weight: bold;
+    color: red;
+    margin-right: 500px;
+    border-radius: 30px;
+    row-gap: unset;
+    text-align: center;
+}
+h1:hover{
+    border: 16px ridge;
+    border-color: crimson;
+    color: #848884;
+    background-color: wheat;
+}
+p{
+    color: blue;
+    font-weight: bold;
+    font-size: 40px;
+}
+.gallery{
+    background: linear-gradient(red, blue,red);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    margin-right: 400px;
+    border: 20px groove;
+    border-color: gold;
+    border-width: 0px;
+    width: 600px;
+    height: ;
+
+}
