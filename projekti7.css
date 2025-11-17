@@ -14,28 +14,25 @@ h1{
     row-gap: unset;
     text-align: center;
 }
-h1:hover{
-    border: 16px ridge;
-    border-color: crimson;
-    color: #848884;
-    background-color: wheat;
-}
 p{
+    text-decoration: underline;
+    border-color: yellow;
     color: blue;
+    font-size: 45px;
     font-weight: bold;
-    font-size: 40px;
 }
-.gallery{
-    background: linear-gradient(red, blue,red);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-    margin-right: 400px;
-    border: 20px groove;
-    border-color: gold;
-    border-width: 0px;
-    width: 600px;
-    height: ;
-
+table{
+    width: 1000px;
+    height: 1000px;
+    border-spacing: 20px;
+    border-collapse: separate;
+    border: 20px ridge;
+    border-color: red;
+    border-radius: 30px;
+    background-color: silver;
+}
+img{
+    width: 300px;
+    height: 300px;
+    border-radius: 30%;
 }
