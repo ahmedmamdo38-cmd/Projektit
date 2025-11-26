@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +13,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    
 }
 
 section {
@@ -22,6 +24,7 @@ section {
     text-align: center;
     max-width: 900px;
     width: 100%;
+    border: ridge 15px;
 }
 
 h1 {
@@ -123,31 +126,7 @@ h1 {
     min-width: 200px;
 }
 
-#play_again {
-    background-color: #5a9bd4;
-    color: #ffffff;
-    border: none;
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    margin-top: 10px;
-}
 
-#play_again:hover {
-    background-color: #4a8bc2;
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-#play_again:active {
-    transform: scale(0.98);
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

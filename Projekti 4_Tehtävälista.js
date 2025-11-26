@@ -7,6 +7,7 @@ addButton.addEventListener("click", addTaskOnClick);
 input.addEventListener("keypress",addTaskOnEnter);
 
 var ul = document.querySelector("ul");
+
 function addTaskOnClick(){
     if (input.value.length > 0){
         createTask();
@@ -30,7 +31,7 @@ function createTask(){
     input.value = ""; // Tyhjentää syöttökentän
 }
     //taskList.appendChild(taskItem);
-alert("Kukkuu");
+
     input.value = "";
      taskItem.addEventListener("click", function(){
         taskItem.classList.toggle("done");

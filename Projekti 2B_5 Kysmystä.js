@@ -33,4 +33,5 @@ function lahetaVastaukset(){
     var tulokset = document.getElementById('tulokset');
     alert('Sait ' + pisteet + ' pistettä, kun maksimi pistemäärä oli ' + yhteensa);
     tulokset.innerHTML = '<h3> Sait <span>' + pisteet +'</span> kun maksimi pistemäärä oli <span>'+ yhteensa +'</span></h3>';
+    return false;
 }
