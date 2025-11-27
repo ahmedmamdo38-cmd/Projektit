@@ -19,7 +19,7 @@ function playGame(playerChoice){
                 result = (computerChoice === "scissor") ? "You win!" : "You lose!";
                 break;
             case "paper":
-                result = (computerChoice === "rock") ? "You wn!" : "You lose!";
+                result = (computerChoice === "rock") ? "You win!" : "You lose!";
                 break;
             case "scissor":
                 result = (computerChoice === "paper") ? "You win!" : "You lose!";
@@ -28,6 +28,6 @@ function playGame(playerChoice){
     }
 
    playerScore.textContent = `Player: ${playerScore}`;
-   cpuScore.textContent = `Computer: ${computerScore}`
+   cpuScore.textContent = `Computer: ${computerChoice}`
    resultDisplay.textContent = result;
 }
