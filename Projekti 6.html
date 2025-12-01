@@ -3,53 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekti 6</title>
-    <link rel="stylesheet" href="Projekti 6.css">
+    <title>Local_Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+        .form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <div id="p6">
-        <form id="pro6">
-            <h1>Sing in</h1>
-            <table>
-                <tr>
-                    <td><label for="enimi">Etunimi:</label></td>
-                    <td class="meb"><input type="text" id="enimi" placeholder="kirjoittaa nimesi" required></td>
-                </tr>
-                <tr>
-                    <td><label for="snimi">Sukunimi:</label></td>
-                    <td><input type="text" id="snimi" placeholder="kirjoittaa sukunimesi" required></td>
-                </tr>
-                <tr>
-                    <td><label for="lahioseite">Lähiosoite:</label></td>
-                    <td><input type="text" name="address" id="address" placeholder="kirjoittaa Lähiosoitesi" required></td>
-                </tr>
-                <tr>
-                    <td><label for="pnumero">Postinumero:</label></td>
-                    <td><input type="text" id="Postinumero" placeholder="04410" required></td>
-                </tr>
+    <div class="form">
+        <h2>Paikallinen Varasto</h2>
+        <label for="key">Avain:</label>
+        <input type="text" id="key" class="key">
+        
+        <label for="firstName">Etunimi:</label>
+        <input type="text" id="firstName" class="firstName">
+        
+        <label for="lastName">Sukunimi:</label>
+        <input type="text" id="lastName" class="lastName">
+        
+        <label for="address">Lähiosoite:</label>
+        <input type="text" id="address" class="address">
+        
+        <label for="postalCode">Postinumero:</label>
+        <input type="text" id="postalCode" class="postalCode">
+        
+        <label for="postOffice">Postitoimipaikka:</label>
+        <input type="text" id="postOffice" class="postOffice">
+        
+        <label for="phoneNumber">Puhelin-numero:</label>
+        <input type="text" id="phoneNumber" class="phoneNumber">
+        
+        <label for="gmail">Sähköposti:</label>
+        <input type="text" id="gmail" class="gmail">
 
-                <tr>
-                    <td><label for="ptoimipaikka">Postitoimipaikka:</label></td>
-                    <td><input type="text" name="ptoimipaikka" id="ptoimipaikka" placeholder="Järvenpää" required></td>
-                </tr>
+        <button type="button" onclick="store()">Tallenna arvot</button>
 
-                <tr>
-                    <td><label for="pnumero">Puhelin-numero:</label></td>
-                    <td><input type="tel" name="pnumero" id="pnumero" placeholder="+3854648824555" required></td>
-                </tr>
+        <label for="retrieveKey">Anna hakuavain:</label></td>
+        <input type="text" name="retrieveKey" id="retrieveKey"></td> 
+           
+           <button id="retrieveButton" onclick="retrieveInformations()">Hae arkistosta</button></td>
+           
+                <p id="retrieve"> <br></p>
 
-                <tr>
-                    <td><label for="gmail">Sähköposti:</label></td>
-                    <td><input type="email" name="gmail" id="gmail" placeholder="nimi@gmail.com"  required></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td><button type="submit" class="Lähetä">Lähetä</button></td>
-                </tr>
-            </table>
-        </form>
     </div>
+
+
+
+    <script>
+        function store() {
+            let key = document.getElementById('key').value;
+            let firstName = document.getElementById('firstName').value;
+            let lastName = document.getElementById('lastName').value;
+            let address = document.getElementById('address').value;
+            let postalCode = document.getElementById('postalCode').value;
+            let postOffice = document.getElementById('postOffice').value;
+            let phoneNumber = document.getElementById('phoneNumber').value;
+            let gmail = document.getElementById('gmail').value;
+
+            const form = {
+                firstName: firstName,
+                lastName: lastName,
+                address: address,
+                postalCode: postalCode,
+                postOffice: postOffice,
+                phoneNumber: phoneNumber,
+                gmail: gmail,
+            };
+
+            window.localStorage.setItem(key, JSON.stringify(form));
+            alert('Tiedot tallennettu!');
+        }
+
+
+        function retrieveInformations(){
+            let key = document.getElementById('retrieveKey').value;
+
+            // console.log("retrive records ");
+            let records = JSON.parse(window.localStorage.getItem(key));
+
+            firstName.value = records.firstName;
+            lastName.value = records.lastName;
+            address.value = records.address;
+            postalCode.value = records.postalCode;
+            postOffice.value = records.postOffice;
+            phoneNumber.value = records.phoneNumber;
+            gmail.value = records.gmail;
+            // let paragraph = document.createElement('p');
+            // let infor = document.createTextNode(records);
+            // paragraph.appendChild(infor);
+            // let element = document.getElementById("retrieve");
+            // element.appendChild(paragraph);
+
+        }
+    </script>
 </body>
-<script src="Projekti 6.js"></script>
 </html>

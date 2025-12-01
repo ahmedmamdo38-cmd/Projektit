@@ -10,16 +10,18 @@ body {
 h1{
     color: white;
 }
+
 p{
     color: white;
 }
         
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    max-width: 800px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
         
 .animal-card {
@@ -41,12 +43,20 @@ p{
 }
         
 .animal-images {
-    font-size: 80px;
     margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.animal-images img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
 }
         
 .animal-name {
     font-size: 18px;
     font-weight: bold;
     color: #333;
+    margin-top: 10px;
 }
